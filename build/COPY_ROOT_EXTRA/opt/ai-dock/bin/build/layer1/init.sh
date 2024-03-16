@@ -8,7 +8,8 @@ PYTHON_PACKAGES=(
 )
 
 NODES=(
-    #"https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/MrForExample/ComfyUI-AnimateAnyone-Evolved"
 )
 
 CHECKPOINT_MODELS=(
@@ -23,6 +24,7 @@ LORA_MODELS=(
 )
 
 VAE_MODELS=(
+    "https://huggingface.co/stabilityai/sd-vae-ft-mse/resolve/main/diffusion_pytorch_model.safetensors"
     #"https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
     #"https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     #"https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
@@ -54,6 +56,21 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
 )
 
+ANIMATE_ANYONE_UNET=(
+    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/unet/diffusion_pytorch_model.bin"
+)
+
+ANIMATE_ANYONE_PATROLLI=(
+    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/denoising_unet.pth"
+    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/motion_module.pth"
+    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/pose_guider.pth"
+    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/reference_unet.pth"
+)
+
+ANIMATE_ANYONE_LAMBDALABS=(
+    "https://huggingface.co/lambdalabs/sd-image-variations-diffusers/resolve/main/image_encoder/pytorch_model.bin"
+)
+
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function build_extra_start() {
@@ -74,7 +91,16 @@ function build_extra_start() {
     build_extra_get_models \
         "/opt/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
-     
+    build_extra_get_models \
+        "/opt/ComfyUI/custom_nodes/ComfyUI-AnimateAnyone-Evolved/pretrained_weights/stable-diffusion-v1-5/unet" \
+        "${ANIMATE_ANYONE_UNET[@]}"
+    build_extra_get_models \
+        "/opt/ComfyUI/custom_nodes/ComfyUI-AnimateAnyone-Evolved/pretrained_weights" \
+        "${ANIMATE_ANYONE_PATROLLI[@]}"
+    build_extra_get_models \
+        "/opt/storage/stable_diffusion/models/clip_vision" \
+        "${ANIMATE_ANYONE_LAMBDALABS[@]}"
+
     cd /opt/ComfyUI && \
     micromamba run -n comfyui -e LD_PRELOAD=libtcmalloc.so python main.py \
         --cpu \
