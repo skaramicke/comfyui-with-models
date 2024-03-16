@@ -9,7 +9,7 @@ PYTHON_PACKAGES=(
 
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
-    "https://github.com/MrForExample/ComfyUI-AnimateAnyone-Evolved"
+    #"https://github.com/MrForExample/ComfyUI-AnimateAnyone-Evolved"
 )
 
 CHECKPOINT_MODELS=(
@@ -24,7 +24,7 @@ LORA_MODELS=(
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/stabilityai/sd-vae-ft-mse/resolve/main/diffusion_pytorch_model.safetensors"
+    #"https://huggingface.co/stabilityai/sd-vae-ft-mse/resolve/main/diffusion_pytorch_model.safetensors"
     #"https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
     #"https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     #"https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
@@ -57,18 +57,18 @@ CONTROLNET_MODELS=(
 )
 
 ANIMATE_ANYONE_UNET=(
-    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/unet/diffusion_pytorch_model.bin"
+    #"https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/unet/diffusion_pytorch_model.bin"
 )
 
 ANIMATE_ANYONE_PATROLLI=(
-    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/denoising_unet.pth"
-    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/motion_module.pth"
-    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/pose_guider.pth"
-    "https://huggingface.co/patrolli/AnimateAnyone/resolve/main/reference_unet.pth"
+    #"https://huggingface.co/patrolli/AnimateAnyone/resolve/main/denoising_unet.pth"
+    #"https://huggingface.co/patrolli/AnimateAnyone/resolve/main/motion_module.pth"
+    #"https://huggingface.co/patrolli/AnimateAnyone/resolve/main/pose_guider.pth"
+    #"https://huggingface.co/patrolli/AnimateAnyone/resolve/main/reference_unet.pth"
 )
 
 ANIMATE_ANYONE_LAMBDALABS=(
-    "https://huggingface.co/lambdalabs/sd-image-variations-diffusers/resolve/main/image_encoder/pytorch_model.bin"
+    #"https://huggingface.co/lambdalabs/sd-image-variations-diffusers/resolve/main/image_encoder/pytorch_model.bin"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
